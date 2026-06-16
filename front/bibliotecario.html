@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acervo · Painel do Bibliotecário</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Acervo</h1>
+      <small>biblioteca</small>
+    </div>
+    <div class="user-chip">
+      <span>Olá, <strong id="nome-usuario">—</strong></span>
+      <span class="role-tag">Bibliotecário</span>
+      <button type="button" class="btn btn-sm" id="btn-sair">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="alerta-global" class="alert hidden" role="alert"></div>
+
+    <!-- ===================== Catálogo de livros ===================== -->
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Catálogo de livros</h2>
+          <p>Cadastre, edite ou remova livros do acervo.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__tab" id="rotulo-form-livro">001 · novo livro</div>
+
+        <form id="form-livro">
+          <input type="hidden" id="livro-id" value="" />
+          <div class="form-grid">
+            <div class="field">
+              <label for="livro-titulo">Título</label>
+              <input type="text" id="livro-titulo" required />
+            </div>
+            <div class="field">
+              <label for="livro-autor">Autor</label>
+              <input type="text" id="livro-autor" required />
+            </div>
+            <div class="field">
+              <label for="livro-ano">Ano de publicação</label>
+              <input type="number" id="livro-ano" min="0" />
+            </div>
+            <div class="field">
+              <label for="livro-quantidade">Quantidade disponível</label>
+              <input type="number" id="livro-quantidade" min="0" required />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" id="btn-salvar-livro">
+              Adicionar livro
+            </button>
+            <button type="button" class="btn-link hidden" id="btn-cancelar-edicao">
+              Cancelar edição
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="card__tab">002 · acervo cadastrado</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Ano</th>
+                <th>Disponível</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-livros">
+              <tr class="empty-row">
+                <td colspan="6">Carregando catálogo...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Empréstimos ===================== -->
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Empréstimos</h2>
+          <p>Acompanhe os empréstimos ativos e confirme devoluções.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__tab">003 · registro de empréstimos</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Livro</th>
+                <th>Leitor</th>
+                <th>Empréstimo</th>
+                <th>Previsão</th>
+                <th>Devolução</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-emprestimos">
+              <tr class="empty-row">
+                <td colspan="8">Carregando empréstimos...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/bibliotecario.js"></script>
+</body>
+</html>

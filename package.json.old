@@ -1,0 +1,11 @@
+{
+  "name": "biblioteca",
+  "version": "1.0.0",
+  "description": "Sistema de gerenciamento de empréstimos de livros — backend + frontend",
+  "private": true,
+  "scripts": {
+    "install:back": "cd back && npm install",
+    "start": "cd back && npm start",
+    "dev": "cd back && npm run dev"
+  }
+}

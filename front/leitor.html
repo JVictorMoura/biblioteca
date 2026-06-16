@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acervo · Painel do Leitor</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Acervo</h1>
+      <small>biblioteca</small>
+    </div>
+    <div class="user-chip">
+      <span>Olá, <strong id="nome-usuario">—</strong></span>
+      <span class="role-tag">Leitor</span>
+      <button type="button" class="btn btn-sm" id="btn-sair">Sair</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <div id="alerta-global" class="alert hidden" role="alert"></div>
+
+    <!-- ===================== Catálogo disponível ===================== -->
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Catálogo disponível</h2>
+          <p>Consulte o acervo e solicite empréstimos.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__tab">001 · acervo</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Ano</th>
+                <th>Disponível</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-livros">
+              <tr class="empty-row">
+                <td colspan="6">Carregando catálogo...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Meus empréstimos ===================== -->
+    <section>
+      <div class="section-head">
+        <div>
+          <h2>Meus empréstimos</h2>
+          <p>Acompanhe os prazos e solicite a devolução quando entregar o livro.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card__tab">002 · minha ficha</div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Livro</th>
+                <th>Autor</th>
+                <th>Empréstimo</th>
+                <th>Previsão</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-emprestimos">
+              <tr class="empty-row">
+                <td colspan="6">Carregando seus empréstimos...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/leitor.js"></script>
+</body>
+</html>

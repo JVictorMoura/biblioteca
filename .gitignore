@@ -1,0 +1,6 @@
+node_modules/
+.env
+database.sqlite
+back/node_modules/
+back/.env
+back/database.sqlite

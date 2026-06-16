@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acervo · Entrar</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="auth-card card">
+      <div class="card__tab">Ficha de acesso</div>
+
+      <div class="brand">
+        <h1>Acervo</h1>
+        <small>biblioteca</small>
+      </div>
+
+      <div class="auth-tabs">
+        <button type="button" id="tab-login" class="active">Entrar</button>
+        <button type="button" id="tab-registro">Cadastrar</button>
+      </div>
+
+      <div id="alerta" class="alert hidden" role="alert"></div>
+
+      <!-- Formulário de login -->
+      <form id="form-login">
+        <div class="field">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" name="email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="login-senha">Senha</label>
+          <input
+            type="password"
+            id="login-senha"
+            name="senha"
+            required
+            autocomplete="current-password"
+          />
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </div>
+      </form>
+
+      <!-- Formulário de cadastro -->
+      <form id="form-registro" class="hidden">
+        <div class="field">
+          <label for="reg-nome">Nome</label>
+          <input type="text" id="reg-nome" name="nome" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="reg-email">Email</label>
+          <input type="email" id="reg-email" name="email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="reg-senha">Senha</label>
+          <input
+            type="password"
+            id="reg-senha"
+            name="senha"
+            required
+            minlength="6"
+            autocomplete="new-password"
+          />
+        </div>
+        <div class="field">
+          <label for="reg-perfil">Perfil</label>
+          <select id="reg-perfil" name="perfil" required>
+            <option value="leitor">Leitor</option>
+            <option value="bibliotecario">Bibliotecário</option>
+          </select>
+        </div>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth-page.js"></script>
+</body>
+</html>
