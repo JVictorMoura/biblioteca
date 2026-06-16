@@ -1,4 +1,4 @@
-# 📚 Acervo — Sistema de Gerenciamento de Empréstimos de Biblioteca
+# Acervo — Sistema de Gerenciamento de Empréstimos de Biblioteca
 
 Sistema completo para gerenciar empréstimos de livros em uma biblioteca, com controle de permissões para **bibliotecários** e **leitores**.
 
@@ -98,7 +98,7 @@ npm run dev
 
 ### Acessar o sistema
 
-Abra o navegador em: **http://localhost:3001**
+Abra o navegador em: **http://localhost:3000**
 
 O servidor serve tanto a API quanto os arquivos do frontend automaticamente.
 
@@ -259,17 +259,17 @@ O frontend gerencia isso automaticamente via `localStorage`.
 
 ```bash
 # Cadastrar bibliotecário
-curl -X POST http://localhost:3001/api/auth/registrar \
+curl -X POST http://localhost:3000/api/auth/registrar \
   -H "Content-Type: application/json" \
   -d '{"nome":"Ana","email":"ana@biblioteca.com","senha":"123456","perfil":"bibliotecario"}'
 
 # Login
-curl -X POST http://localhost:3001/api/auth/login \
+curl -X POST http://localhost:3000/api/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"ana@biblioteca.com","senha":"123456"}'
 
 # Cadastrar livro (usar o token retornado no login)
-curl -X POST http://localhost:3001/api/livros \
+curl -X POST http://localhost:3000/api/livros \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer SEU_TOKEN_AQUI" \
   -d '{"titulo":"Clean Code","autor":"Robert C. Martin","ano_publicacao":2008,"quantidade_disponivel":3}'
