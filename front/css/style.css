@@ -1,7 +1,4 @@
-/* ============================================================
-   Acervo — Sistema de Empréstimos de Biblioteca
-   Identidade visual: ficha de catálogo / carimbo de devolução
-   ============================================================ */
+
 
 :root {
   --paper: #f6f1e6;
@@ -52,7 +49,7 @@ a {
   color: var(--green);
 }
 
-/* ---------- Topbar ---------- */
+
 
 .topbar {
   display: flex;
@@ -109,7 +106,7 @@ a {
   color: var(--green-dark);
 }
 
-/* ---------- Layout ---------- */
+
 
 .container {
   max-width: 1040px;
@@ -136,7 +133,7 @@ a {
   font-size: 0.9rem;
 }
 
-/* ---------- Card (ficha de catálogo) ---------- */
+
 
 .card {
   position: relative;
@@ -163,7 +160,7 @@ a {
   border-radius: 2px;
 }
 
-/* ---------- Tables ---------- */
+
 
 .table-wrap {
   overflow-x: auto;
@@ -222,7 +219,7 @@ tbody tr:last-child td {
   gap: 0.4rem;
 }
 
-/* ---------- Stamp badges (status de empréstimo) ---------- */
+
 
 .stamp {
   display: inline-block;
@@ -256,7 +253,6 @@ tbody tr:last-child td {
   border-style: dashed;
 }
 
-/* ---------- Forms ---------- */
 
 .form-grid {
   display: grid;
@@ -304,7 +300,6 @@ tbody tr:last-child td {
   margin-top: 0.5rem;
 }
 
-/* ---------- Buttons ---------- */
 
 .btn {
   font-family: var(--font-body);
@@ -375,7 +370,6 @@ select:focus-visible {
   text-decoration: underline;
 }
 
-/* ---------- Alerts ---------- */
 
 .alert {
   padding: 0.75rem 1rem;
@@ -406,7 +400,6 @@ select:focus-visible {
   font-size: 0.85rem;
 }
 
-/* ---------- Auth page (index.html) ---------- */
 
 .auth-wrap {
   min-height: 100vh;
@@ -451,7 +444,6 @@ select:focus-visible {
   font-weight: 600;
 }
 
-/* ---------- Responsive ---------- */
 
 @media (max-width: 640px) {
   .topbar {

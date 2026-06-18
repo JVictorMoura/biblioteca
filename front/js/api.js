@@ -1,15 +1,10 @@
-/* ============================================================
-   api.js — funções compartilhadas: chamadas HTTP, sessão e
-   utilitários usados pelas três páginas do frontend.
-   ============================================================ */
 
-// Usa caminho relativo — o backend serve os arquivos estáticos
 const API_BASE_URL = "/api";
 
 const STORAGE_TOKEN = "acervo_token";
 const STORAGE_USUARIO = "acervo_usuario";
 
-/* ---------- Sessão ---------- */
+
 
 function getToken() {
     return localStorage.getItem(STORAGE_TOKEN);
@@ -35,11 +30,6 @@ function sair() {
     window.location.href = "index.html";
 }
 
-/**
- * Garante que existe uma sessão válida com o perfil esperado.
- * Caso contrário, redireciona para a página correta.
- * Retorna os dados do usuário logado.
- */
 function exigirPerfil(perfilEsperado) {
     const usuario = getUsuario();
     const token = getToken();
@@ -58,13 +48,6 @@ function exigirPerfil(perfilEsperado) {
     return usuario;
 }
 
-/* ---------- Chamadas à API ---------- */
-
-/**
- * Faz uma chamada à API, anexando o token JWT (se houver) e
- * tratando o corpo da resposta como JSON.
- * Lança um erro com `.status` e `.mensagem` em caso de falha.
- */
 async function apiFetch(caminho, opcoes = {}) {
     const headers = { "Content-Type": "application/json", ...(opcoes.headers || {}) };
     const token = getToken();
@@ -103,7 +86,7 @@ async function apiFetch(caminho, opcoes = {}) {
     return dados;
 }
 
-/* ---------- Formatação ---------- */
+
 
 function formatarData(dataISO) {
     if (!dataISO) return "—";

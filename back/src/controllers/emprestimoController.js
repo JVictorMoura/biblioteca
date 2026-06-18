@@ -6,10 +6,7 @@ function hojeISO() {
   return new Date().toISOString().slice(0, 10);
 }
 
-/**
- * Marca como 'atrasado' qualquer empréstimo cujo status ainda seja 'ativo',
- * que não tenha sido devolvido e cuja data prevista já tenha passado.
- */
+
 function atualizarAtrasados() {
   db.prepare(
     `UPDATE emprestimos
@@ -20,9 +17,7 @@ function atualizarAtrasados() {
   ).run(hojeISO());
 }
 
-// GET /api/emprestimos
-// - bibliotecário: vê todos os empréstimos (ou filtra por ?leitor_id=)
-// - leitor: vê apenas os próprios empréstimos
+
 function listar(req, res) {
   atualizarAtrasados();
 
@@ -60,7 +55,7 @@ function listar(req, res) {
   res.json(emprestimos);
 }
 
-// GET /api/emprestimos/:id - obtém detalhes de um empréstimo específico
+
 function obterPorId(req, res) {
   atualizarAtrasados();
 
@@ -87,7 +82,7 @@ function obterPorId(req, res) {
   res.json(emprestimo);
 }
 
-// POST /api/emprestimos - cria um novo empréstimo (somente leitor)
+
 function criar(req, res) {
   const { livro_id, data_devolucao_prevista } = req.body;
   const leitor_id = req.usuario.id;
@@ -133,7 +128,7 @@ function criar(req, res) {
   res.status(201).json({ mensagem: 'Empréstimo registrado com sucesso.', emprestimo: novoEmprestimo });
 }
 
-// PUT /api/emprestimos/:id/solicitar-devolucao - leitor solicita devolução
+
 function solicitarDevolucao(req, res) {
   const { id } = req.params;
   const leitor_id = req.usuario.id;
@@ -162,8 +157,7 @@ function solicitarDevolucao(req, res) {
   res.json({ mensagem: 'Devolução solicitada com sucesso. O bibliotecário confirmará em breve.', emprestimo: atualizado });
 }
 
-// PUT /api/emprestimos/:id - atualiza o status de um empréstimo (somente bibliotecário)
-// Usado principalmente para registrar a devolução (status: 'devolvido')
+
 function atualizarStatus(req, res) {
   const { id } = req.params;
   const { status } = req.body;
@@ -203,7 +197,7 @@ function atualizarStatus(req, res) {
   res.json({ mensagem: 'Status do empréstimo atualizado com sucesso.', emprestimo: atualizado });
 }
 
-// DELETE /api/emprestimos/:id - cancela (remove) um empréstimo (somente bibliotecário)
+
 function remover(req, res) {
   const { id } = req.params;
 
@@ -218,7 +212,7 @@ function remover(req, res) {
   const deletarEmprestimo = db.prepare('DELETE FROM emprestimos WHERE id = ?');
 
   db.transaction(() => {
-    // Se o empréstimo ainda não foi devolvido, o exemplar volta ao estoque
+  
     if (emprestimo.status !== 'devolvido') {
       aumentarEstoque.run(emprestimo.livro_id);
     }

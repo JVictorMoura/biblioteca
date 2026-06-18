@@ -1,6 +1,4 @@
-/* ============================================================
-   bibliotecario.js — lógica do painel do bibliotecário
-   ============================================================ */
+
 
 (function () {
   const usuario = exigirPerfil("bibliotecario");
@@ -22,9 +20,7 @@
     alertaGlobal.classList.add("hidden");
   }
 
-  /* ---------------------------------------------------------
-     Catálogo de livros
-     --------------------------------------------------------- */
+
 
   const formLivro = document.getElementById("form-livro");
   const campoLivroId = document.getElementById("livro-id");
@@ -154,9 +150,6 @@
     }
   });
 
-  /* ---------------------------------------------------------
-     Empréstimos
-     --------------------------------------------------------- */
 
   const tabelaEmprestimos = document.getElementById("tabela-emprestimos");
 
@@ -256,10 +249,7 @@
     }
   });
 
-  /* ---------------------------------------------------------
-     Inicialização
-     --------------------------------------------------------- */
-
+ 
   carregarLivros();
   carregarEmprestimos();
 })();

@@ -5,7 +5,7 @@ const { JWT_SECRET } = require('../middleware/auth');
 
 const PERFIS_VALIDOS = ['bibliotecario', 'leitor'];
 
-// POST /api/auth/registrar
+
 function registrar(req, res) {
   const { nome, email, senha, perfil } = req.body;
 
@@ -34,7 +34,7 @@ function registrar(req, res) {
   });
 }
 
-// POST /api/auth/login
+
 function login(req, res) {
   const { email, senha } = req.body;
 

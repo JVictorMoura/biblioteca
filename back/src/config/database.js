@@ -1,13 +1,13 @@
 const Database = require('better-sqlite3');
 const path = require('path');
 
-// Arquivo do banco de dados (criado automaticamente na primeira execução)
+
 const dbPath = path.join(__dirname, '..', '..', 'database.sqlite');
 const db = new Database(dbPath);
 
 db.pragma('foreign_keys = ON');
 
-// Criação das tabelas, caso ainda não existam
+
 db.exec(`
   CREATE TABLE IF NOT EXISTS usuarios (
     id INTEGER PRIMARY KEY AUTOINCREMENT,

@@ -2,10 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'segredo_super_secreto';
 
-/**
- * Verifica se o token JWT enviado no header Authorization é válido.
- * Em caso positivo, anexa os dados do usuário em req.usuario.
- */
+
 function autenticar(req, res, next) {
   const authHeader = req.headers.authorization;
 
@@ -24,10 +21,7 @@ function autenticar(req, res, next) {
   }
 }
 
-/**
- * Garante que o usuário autenticado possui um dos perfis permitidos.
- * Uso: autorizar('bibliotecario') ou autorizar('bibliotecario', 'leitor')
- */
+
 function autorizar(...perfisPermitidos) {
   return (req, res, next) => {
     if (!req.usuario || !perfisPermitidos.includes(req.usuario.perfil)) {

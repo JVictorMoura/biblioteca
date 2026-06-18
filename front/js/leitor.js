@@ -1,6 +1,4 @@
-/* ============================================================
-   leitor.js — lógica do painel do leitor
-   ============================================================ */
+
 
 (function () {
   const usuario = exigirPerfil("leitor");
@@ -22,9 +20,7 @@
     alertaGlobal.classList.add("hidden");
   }
 
-  /* ---------------------------------------------------------
-     Catálogo de livros
-     --------------------------------------------------------- */
+
 
   const tabelaLivros = document.getElementById("tabela-livros");
 
@@ -99,9 +95,7 @@
     }
   });
 
-  /* ---------------------------------------------------------
-     Meus empréstimos
-     --------------------------------------------------------- */
+
 
   const tabelaEmprestimos = document.getElementById("tabela-emprestimos");
 
@@ -197,9 +191,6 @@
     }
   });
 
-  /* ---------------------------------------------------------
-     Inicialização
-     --------------------------------------------------------- */
 
   carregarLivros();
   carregarEmprestimos();

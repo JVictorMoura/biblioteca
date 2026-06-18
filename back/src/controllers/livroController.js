@@ -1,12 +1,12 @@
 const db = require('../config/database');
 
-// GET /api/livros - lista todos os livros disponíveis
+
 function listar(req, res) {
   const livros = db.prepare('SELECT * FROM livros ORDER BY titulo').all();
   res.json(livros);
 }
 
-// GET /api/livros/:id - obtém detalhes de um livro específico
+
 function obterPorId(req, res) {
   const { id } = req.params;
 
@@ -18,7 +18,6 @@ function obterPorId(req, res) {
   res.json(livro);
 }
 
-// POST /api/livros - cadastra um novo livro (somente bibliotecário)
 function criar(req, res) {
   const { titulo, autor, ano_publicacao, quantidade_disponivel } = req.body;
 
@@ -43,7 +42,7 @@ function criar(req, res) {
   res.status(201).json({ mensagem: 'Livro cadastrado com sucesso.', livro: novoLivro });
 }
 
-// PUT /api/livros/:id - atualiza dados de um livro (somente bibliotecário)
+
 function atualizar(req, res) {
   const { id } = req.params;
 
@@ -72,7 +71,7 @@ function atualizar(req, res) {
   res.json({ mensagem: 'Livro atualizado com sucesso.', livro: atualizado });
 }
 
-// DELETE /api/livros/:id - remove um livro do sistema (somente bibliotecário)
+
 function remover(req, res) {
   const { id } = req.params;
 

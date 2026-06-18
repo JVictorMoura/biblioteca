@@ -1,9 +1,6 @@
-/* ============================================================
-   auth-page.js — lógica da página index.html (login e cadastro)
-   ============================================================ */
 
 (function () {
-  // Se já existe uma sessão válida, vai direto para o painel correspondente
+
   const usuarioExistente = getUsuario();
   if (usuarioExistente && getToken()) {
     window.location.href =
@@ -92,8 +89,7 @@
         body: JSON.stringify({ nome, email, senha, perfil }),
       });
 
-      // Após cadastrar, faz login automaticamente
-      const resposta = await apiFetch("/auth/login", {
+     const resposta = await apiFetch("/auth/login", {
         method: "POST",
         body: JSON.stringify({ email, senha }),
       });
